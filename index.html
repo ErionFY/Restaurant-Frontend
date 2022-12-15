@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+			crossorigin="anonymous"
+		/>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+			<div
+				class="container-fluid d-flex flex-column align-items-stretch flex-lg-row justify-content-start"
+			>
+				<div class="navbar-brand mx-0 me-lg-3 text-center">Delivery.Кушац</div>
+				<a href="/" class="btn" id="nav-menu">Меню</a>
+				<a href="/orders/" class="btn d-none" id="nav-orders">Заказы</a>
+				<div
+					class="d-flex flex-row justify-content-center d-none"
+					id="nav-basket"
+				>
+					<a href="/cart/" class="btn">Корзина</a>
+					<div
+						class="align-self-center text-center"
+						id="basket-amount-nav"
+						style="
+							background-color: green;
+							width: 30px;
+							height: 30px;
+							border-radius: 20%;
+							color: #fafbfc;
+							margin-left: px;
+						"
+					>
+						<div></div>
+					</div>
+				</div>
+				<a
+					href="/profile/"
+					class="btn ms-lg-auto me-lg-3 d-none align-self-center"
+					id="nav-profile"
+				></a>
+				<!--username_btn to profile-->
+				<div class="btn d-none" id="nav-logout">Выйти</div>
+				<a href="/registration/" class="ms-lg-auto btn" id="nav-signup"
+					>Регистрация</a
+				>
+				<a href="/login/" class="btn" id="nav-login">Вход</a>
+			</div>
+		</nav>
+		<div class="container my-3 shadow mt-0">
+			<form class="card-body mt-2" style="min-width: 670px">
+				<div class="card flex-row">
+					<div class="d-flex justify-content-evenly">
+						<div class="card p-2 m-3" style="min-width: 110px">
+							<div class="form-check">
+								<input
+									class="form-check-input"
+									type="checkbox"
+									value="Wok"
+									id="Wok-menu-checkbox"
+									checked
+								/>
+								<label class="form-check-label" for="Wok-menu-checkbox">
+									WOK
+								</label>
+							</div>
+							<div class="form-check">
+								<input
+									class="form-check-input"
+									type="checkbox"
+									value="Pizza"
+									id="Pizza-menu-checkbox"
+									checked
+								/>
+								<label class="form-check-label" for="Pizza-menu-checkbox">
+									Пицца
+								</label>
+							</div>
+							<div class="form-check">
+								<input
+									class="form-check-input"
+									type="checkbox"
+									value="Soup"
+									id="Soup-menu-checkbox"
+									checked
+								/>
+								<label class="form-check-label" for="Soup-menu-checkbox">
+									Супы
+								</label>
+							</div>
+							<div class="form-check">
+								<input
+									class="form-check-input"
+									type="checkbox"
+									value="Dessert"
+									id="Dessert-menu-checkbox"
+									checked
+								/>
+								<label class="form-check-label" for="Dessert-menu-checkbox">
+									Десерты
+								</label>
+							</div>
+							<div class="form-check">
+								<input
+									class="form-check-input"
+									type="checkbox"
+									value="Drink"
+									id="Drink-menu-checkbox"
+									checked
+								/>
+								<label class="form-check-label" for="Drink-menu-checkbox">
+									Напитки
+								</label>
+							</div>
+						</div>
+						<div class="align-self-center p-2" style="min-width: 190px">
+							<select class="form-select" id="sorting-input">
+								<option value="NameAsc">по имени от А-Я</option>
+								<option value="NameDesc">по имени от Я-А</option>
+								<option value="PriceAsc">по возрастанию цены</option>
+								<option value="PriceDesc">по убыванию цены</option>
+								<option value="RatingAsc">по возрастанию рейтинга</option>
+								<option value="RatingDesc">по убыванию рейтинга</option>
+							</select>
+						</div>
+						<div class="align-self-center p-2">
+							<div class="form-check form-switch">
+								<input
+									class="form-check-input"
+									type="checkbox"
+									id="vegeterian-toggle"
+								/>
+								<label class="form-check-label" for="vegeterian-toggle"
+									>Показать только вегерерианские</label
+								>
+							</div>
+						</div>
+					</div>
+					<div class="ms-auto p-2 align-self-center">
+						<button
+							type="button"
+							class="btn btn-primary mb-2 mt-2"
+							id="menu-update"
+						>
+							<span class="mx-1">Применить</span>
+						</button>
+					</div>
+				</div>
+			</form>
+
+			<div class="d-flex justify-content-center" id="spinner-placeholde"></div>
+
+			<div class="d-none" id="panel-dish">
+				<div class="p-0 d-flex flex-wrap" id="page-dish">
+					<div class="d-none d-flex" id="data-dish">
+						<div
+							class="card m-3"
+							style="width: 400px; word-wrap: break-word; position: relative"
+						>
+							<img
+								class="card-img-top image-dish"
+								style="border-radius: 2%"
+								height="270px"
+							/>
+							<img
+								src="leaf2.png"
+								class="vegetarian-dish d-none"
+								style="width: 50px; position: absolute; top: 230px; right: 0px"
+							/>
+
+							<div class="card-body">
+								<h5 class="card-title name-dish"></h5>
+
+								<div class="category-dish">Категория блюда - </div>
+								<span class="card rating-dish"></span>
+								<div class="description-dish"></div>
+							</div>
+							<div class="card-footer d-flex flex-row justify-content-between">
+								<div class="align-self-center price-dish">Цена - </div>
+
+								<div class="basket-buttons">
+									<div
+										class="d-none d-flex flex-row btn-group card btns-change-basket"
+									>
+										<div class="btn btn-light decrease-dish">-</div>
+										<div
+											class="align-self-center amount-dish text-center"
+											style="width: 35px; background-color: #fafbfc"
+										></div>
+										<div class="btn btn-light increase-dish">+</div>
+									</div>
+									<div class="btn btn-primary add-basket-dish">В корзину</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<nav aria-label="Page navigation">
+				<ul class="pagination mt-3 d-none" id="paginator">
+					<li class="page-item" id="previous-btn">
+						<a class="page-link" href="#" aria-label="Previous">
+							<span aria-hidden="true">&laquo;</span>
+						</a>
+					</li>
+					<li class="page-item page-number d-none">
+						<a class="page-link" href="#"></a>
+					</li>
+					<li class="page-item" id="next-btn">
+						<a class="page-link" href="#" aria-label="Next">
+							<span aria-hidden="true">&raquo;</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</body>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+		crossorigin="anonymous"
+	></script>
+	<script
+		src="https://code.jquery.com/jquery-3.6.1.js"
+		integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+		crossorigin="anonymous"
+	></script>
+	<script src="common.js"></script>
+	<script src="menu.js"></script>
+</html>

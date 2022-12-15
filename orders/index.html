@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+			crossorigin="anonymous"
+		/>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+			<div
+				class="container-fluid d-flex flex-column align-items-stretch flex-lg-row justify-content-start"
+			>
+				<div class="navbar-brand mx-0 me-lg-3 text-center">Delivery.Кушац</div>
+				<a href="/" class="btn" id="nav-menu">Меню</a>
+				<a href="/orders/" class="btn d-none" id="nav-orders">Заказы</a>
+				<div
+					class="d-flex flex-row justify-content-center d-none"
+					id="nav-basket"
+				>
+					<a href="/cart/" class="btn">Корзина</a>
+					<div
+						class="align-self-center text-center"
+						id="basket-amount-nav"
+						style="
+							background-color: green;
+							width: 30px;
+							height: 30px;
+							border-radius: 20%;
+							color: #fafbfc;
+							margin-left: px;
+						"
+					>
+						<div></div>
+					</div>
+				</div>
+				<a
+					href="/profile/"
+					class="btn ms-lg-auto me-lg-3 d-none align-self-center"
+					id="nav-profile"
+				></a>
+				<!--username_btn to profile-->
+				<div class="btn d-none" id="nav-logout">Выйти</div>
+				<a href="/registration/" class="ms-lg-auto btn" id="nav-signup"
+					>Регистрация</a
+				>
+				<a href="/login/" class="btn" id="nav-login">Вход</a>
+			</div>
+		</nav>
+		<div class="container my-3 shadow mt-0 p-1">
+			<div
+				class="card flex-row justify-content-between d-none"
+				style="margin: 1%"
+				id="new-order"
+			>
+				<div class="m-4 align-self-center">
+					В корзине есть блюда, можно оформить заказ
+				</div>
+				<div class="btn btn-success align-self-center m-3" id="create-order">Оформить</div>
+			</div>
+			<div style="margin: 1%">
+				<h1>Последние Заказы</h1>
+				<div
+					class="card p-0 d-none"
+					id="orders-panel"
+					style="margin-left: 1%; margin-right: 1%; margin-bottom: 1%"
+				>
+					<ul class="list-group list-group-flush" id="orders-page">
+						<li class="list-group-item bg-transparent d-none" id="order-data">
+							<div class="d-flex flex-row justify-content-between">
+								<div>
+									<div class="time-order" style="font-weight: bold; text-decoration: underline;">Заказ от </div>
+									<div class="status-order">Статус заказа - </div>
+									<div class="delivery-time-order">Доставлен:</div>
+								</div>
+								<div class="d-flex flex-column justify-content-between">
+									<button class="btn btn-outline-success d-none confirm-delivery" type="button-submit" >
+										Подтвердить доставку
+									</button>
+									<div class="d-flex flex-row">
+										<div style="font-weight: bold">Стоимость заказа:</div>
+										<div class="price-order" > </div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+		crossorigin="anonymous"
+	></script>
+	<script
+		src="https://code.jquery.com/jquery-3.6.1.js"
+		integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+		crossorigin="anonymous"
+	></script>
+	<script src="/common.js"></script>
+	<script src="orders.js"></script>
+</html>

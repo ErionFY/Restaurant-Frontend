@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+        <div
+            class="container-fluid d-flex flex-column align-items-stretch flex-lg-row justify-content-start"
+        >
+            <div class="navbar-brand mx-0 me-lg-3 text-center">Delivery.Кушац</div>
+            <a href="/" class="btn" id="nav-menu">Меню</a>
+            <a href="/orders/" class=" btn d-none" id="nav-orders"
+                >Заказы</a
+            >
+            <div class="d-flex flex-row justify-content-center d-none" id="nav-basket">
+                <a href="/cart/" class=" btn " 
+                    >Корзина</a
+                >
+                <div
+                class=" align-self-center text-center" 
+                    id="basket-amount-nav"
+                    style="background-color: green; width: 30px; height: 30px; border-radius: 20%; color:#fafbfc;margin-left: px;"
+                >
+                <div></div>
+                </div>
+            </div>
+            <a
+                href="/profile/"
+                class="btn ms-lg-auto me-lg-3 d-none align-self-center"
+                id="nav-profile"
+            ></a>
+            <!--username_btn to profile-->
+            <div class="btn d-none" id="nav-logout">Выйти</div>
+            <a href="/registration/" class="ms-lg-auto btn" id="nav-signup"
+                >Регистрация</a
+            >
+            <a href="/login/" class="btn" id="nav-login">Вход</a>
+        </div>
+    </nav>
+    <div class="container my-3 shadow mt-0">
+        <h1>Авторизация</h1>
+        <form class="card-body">
+            <div class="mb-3">
+                <label for="Email" class="form-label"><a>Email</a></label>
+                <div class="alert alert-danger d-none" id="email-alert"></div>
+                <input type="email" class="form-control" id="email-input">
+            </div>
+            <div class="mb-3">
+                <label for="password-input" class="form-label"><a>Пароль</a></label>
+                <div class="alert alert-danger d-none" id="password-alert"></div>
+                <input type="password" class="form-control" id="password-input">
+            </div>
+            <button type="button" class="btn btn-primary mb-2" id="login-submit">
+            <span class="mx-1">Войти</span>
+        </button>
+        </form>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script src="login.js"></script>
+<script src="/common.js"></script>
+</html>
