@@ -12,21 +12,22 @@ $(document).ready(async function() {
 })
 
 
-async function getBasketInfo(){//KEY-id Value-amount 
+async function getBasketInfo(){
 
-
-    await fetch("https://food-delivery.kreosoft.ru/api/basket", {
+try{
+    const response=await fetch("https://food-delivery.kreosoft.ru/api/basket", {
         headers: {
             Authorization: "Bearer " + GetCookie("token")
         }
-    }).then((response) => {
-        if (response.status == 200) return response.json();
-        else throw new Error(response.status.toString());
-    }).then((json) => {
-       for(let dishB of json){
-        basketAmount=basketAmount+dishB.amount;
-       }
-    }).catch((e) => {
-        console.log(e);
     })
+    const data = await response.json();
+       for(let dish of data){
+        basketAmount=basketAmount+dish.amount;
+        
+       }
+    }
+catch(e){
+    console.error(e);
 }
+}
+
