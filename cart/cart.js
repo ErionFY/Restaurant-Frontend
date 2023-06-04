@@ -76,7 +76,7 @@ async function GetCart() {
             $("#basket-items-page").append(basItemData);
         }
         $("#basket-amount-nav").text(basketAmount);
-        $("#basket-items-panel").removeClass("d-none")
+        $("#basket-items-panel").removeClass("d-none");
 	} catch (e) {
 		console.log(e);
 	}

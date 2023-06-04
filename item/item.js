@@ -2,7 +2,7 @@ let waitingForResponse = false;
 let itemId;
 let basketAmount=0;
 $(document).ready(async function() {
-    itemId=page = window.location.search.slice(1).split("&").find((query) => query.startsWith("id="))?.slice(3);
+    itemId= window.location.search.slice(1).split("&").find((query) => query.startsWith("id="))?.slice(3);
     await LoadItemData();
     await getBasketInfo();
     $("#basket-amount-nav").text(basketAmount);

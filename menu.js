@@ -16,6 +16,7 @@ $(document).ready(async function() {
     if (GetCookie("token")){
        await getBasketInfo();
        }
+       SetMenuCriteries()
    await UpdateList();
    
 })
@@ -34,6 +35,7 @@ function SetMenuCriteries(){
     }else{
         $("#sorting-input").val("NameAsc");
     }
+    $("#form-category").removeClass("d-none");
 
 }
 

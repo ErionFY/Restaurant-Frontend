@@ -35,19 +35,28 @@ async function GetOrders(){
             orderData.attr("id",order.id);
             orderTimeAndDate=order.orderTime.split("T")[0]
             orderTimeAndDate=orderTimeAndDate.split("-");
-            ordertime=orderTimeAndDate[0]+"."+orderTimeAndDate[1]+"."+orderTimeAndDate[2]
+            ordertime=orderTimeAndDate[2]+"."+orderTimeAndDate[1]+"."+orderTimeAndDate[0]
             orderData.find(".time-order").append(ordertime);
             if(order.status=="InProcess"){
                 orderData.find(".status-order").append("В обработке");
                 orderData.find(".confirm-delivery").removeClass("d-none");
                 orderData.find(".confirm-delivery").click(async function(){
                     await ConfirmOrderDelivery(order.id);
+                    orderData.find(".status-order").text("Статус заказа - Доставлен");
+                    orderData.find(".delivery-time-order").text("Доставлен:")
+                    orderDelivery=order.deliveryTime.split("T");
+            orderDeliveryDate=orderDelivery[0].split("-");
+            orderDeliveryTime=orderDelivery[1].split(":");
+            orderDDateTime=" "+orderDeliveryDate[2]+"."+orderDeliveryDate[1]+"."+orderDeliveryDate[0]+" "+orderDeliveryTime[0]+":"+orderDeliveryTime[1];
+            orderData.find(".delivery-time-order").append(orderDDateTime);
                 })
+                orderData.find(".delivery-time-order").text("Доставка ожидается:")
         }
             else if(order.status=="Delivered"){orderData.find(".status-order").append("Доставлен");}
 
             orderData.find(".confirm-delivery").click(async function(){
                 await ConfirmOrderDelivery(order.id);
+                orderData.find(".confirm-delivery").addClass("d-none");
             })
 
         orderData.find(".time-order").click(() => window.location.href = "/order/?id=" + order.id);
@@ -59,7 +68,7 @@ async function GetOrders(){
             orderDelivery=order.deliveryTime.split("T");
             orderDeliveryDate=orderDelivery[0].split("-");
             orderDeliveryTime=orderDelivery[1].split(":");
-            orderDDateTime=" "+orderDeliveryDate[0]+"."+orderDeliveryDate[1]+"."+orderDeliveryDate[2]+" "+orderDeliveryTime[0]+":"+orderDeliveryTime[1];
+            orderDDateTime=" "+orderDeliveryDate[2]+"."+orderDeliveryDate[1]+"."+orderDeliveryDate[0]+" "+orderDeliveryTime[0]+":"+orderDeliveryTime[1];
             orderData.find(".delivery-time-order").append(orderDDateTime);
             orderData.find(".price-order").append(" "+ order.price);
             orderData.removeClass("d-none");
